@@ -490,7 +490,7 @@ def parse_arguments():
     parser.add_argument('--task', type=str, choices=['y', 'n'], help='Cek and Claim Task (y/n)')
     parser.add_argument('--multi', type=str, choices=['y', 'n'], help='Upgrade Multi Value (y/n)')
     parser.add_argument('--fill', type=str, choices=['y', 'n'], help='Upgrade Fill Rate (y/n)')
-    parser.add_argument('--max-level', type=int, help='Level maksimum untuk upgrade (default: 5)')
+    parser.add_argument('--max-level', type=int, help='Level maksimum untuk upgrade (default: 10)')
     
     args = parser.parse_args()
 
@@ -507,10 +507,10 @@ def parse_arguments():
         args.fill = fill_input if fill_input in ['y', 'n'] else 'n'
     
     if (args.multi == 'y' or args.fill == 'y') and args.max_level is None:
-        max_level_input = input("Masukkan level maksimum untuk upgrade (default: 5): ").strip()
-        args.max_level = int(max_level_input) if max_level_input else 5
+        max_level_input = input("Masukkan level maksimum untuk upgrade (default: 10): ").strip()
+        args.max_level = int(max_level_input) if max_level_input else 10
     elif args.max_level is None:
-        args.max_level = 5  # Default value if max_level is not provided and neither multi nor fill is 'y'
+        args.max_level = 10  # Default value if max_level is not provided and neither multi nor fill is 'y'
     
     return args
 
